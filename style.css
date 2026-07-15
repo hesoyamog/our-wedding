@@ -30,7 +30,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Затемнение */
 .hero::before {
     content: '';
     position: absolute;
@@ -42,7 +41,6 @@ body {
     z-index: 0;
 }
 
-/* Декоративный круг */
 .hero::after {
     content: '';
     position: absolute;
@@ -106,6 +104,81 @@ body {
     height: 2px;
     background: rgba(255, 255, 255, 0.6);
     margin: 1.2rem auto;
+}
+
+/* ========== ОБРАЩЕНИЕ МОЛОДОЖЁНОВ ========== */
+.message-section {
+    padding: 4rem 1.5rem;
+    background: linear-gradient(135deg, #fdf8f5 0%, #fceee8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.message-section::before {
+    content: '♥';
+    position: absolute;
+    font-size: 10rem;
+    color: rgba(181, 138, 122, 0.06);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.message-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.message-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.message-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #5a3d33;
+    margin-bottom: 0.5rem;
+}
+
+.message-divider {
+    width: 60px;
+    height: 2px;
+    background: #b58a7a;
+    margin: 0.8rem auto 1.8rem;
+}
+
+.message-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #5a4a44;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.message-text:last-of-type {
+    margin-bottom: 2rem;
+}
+
+.message-signature {
+    font-size: 1.1rem;
+    color: #7a5a4f;
+    font-weight: 300;
+}
+
+.message-signature span {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #5a3d33;
+    display: inline-block;
+    margin-top: 0.3rem;
 }
 
 /* ========== ТАЙМЕР ========== */
@@ -303,6 +376,58 @@ body {
     margin-top: 0.8rem;
     font-size: 0.85rem;
     color: #a58a7e;
+}
+
+/* ========== ВИДЕО ========== */
+.video-section {
+    padding: 4rem 1rem;
+    background: #fdf8f5;
+}
+
+.video-container {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video-title {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #5a3d33;
+    margin-bottom: 0.5rem;
+}
+
+.video-subtitle {
+    text-align: center;
+    color: #7a5a4f;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: #f5f0ed;
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    object-fit: cover;
 }
 
 /* ========== RSVP ФОРМА ========== */
@@ -519,142 +644,6 @@ body {
     .map-container {
         padding: 0 5px;
     }
-}
-
-/* ========== ВИДЕО ========== */
-.video-section {
-    padding: 4rem 1rem;
-    background: #fdf8f5;
-}
-
-.video-container {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.video-title {
-    text-align: center;
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.8rem;
-    color: #5a3d33;
-    margin-bottom: 0.5rem;
-}
-
-.video-subtitle {
-    text-align: center;
-    color: #7a5a4f;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 177.78%; /* 9:16 — вертикальное */
-    height: 0;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    background: #f5f0ed;
-}
-
-.video-wrapper video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: none;
-    outline: none;
-}
-
-/* Адаптивность */
-@media (max-width: 600px) {
-    .video-title {
-        font-size: 2rem;
-    }
-    .video-wrapper {
-        border-radius: 12px;
-    }
-}
-
-/* ========== ОБРАЩЕНИЕ МОЛОДОЖЁНОВ ========== */
-.message-section {
-    padding: 4rem 1.5rem;
-    background: linear-gradient(135deg, #fdf8f5 0%, #fceee8 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.message-section::before {
-    content: '♥';
-    position: absolute;
-    font-size: 10rem;
-    color: rgba(181, 138, 122, 0.06);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-.message-container {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-.message-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 0.8rem;
-}
-
-.message-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.8rem;
-    color: #5a3d33;
-    margin-bottom: 0.5rem;
-}
-
-.message-divider {
-    width: 60px;
-    height: 2px;
-    background: #b58a7a;
-    margin: 0.8rem auto 1.8rem;
-}
-
-.message-text {
-    font-size: 1.05rem;
-    line-height: 1.9;
-    color: #5a4a44;
-    margin-bottom: 1.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.message-text:last-of-type {
-    margin-bottom: 2rem;
-}
-
-.message-signature {
-    font-size: 1.1rem;
-    color: #7a5a4f;
-    font-weight: 300;
-}
-
-.message-signature span {
-    font-family: 'Great Vibes', cursive;
-    font-size: 2.2rem;
-    color: #5a3d33;
-    display: inline-block;
-    margin-top: 0.3rem;
-}
-
-/* Адаптивность */
-@media (max-width: 600px) {
     .message-section {
         padding: 3rem 1.2rem;
     }
@@ -670,5 +659,18 @@ body {
     }
     .message-icon {
         font-size: 2rem;
+    }
+    .video-title {
+        font-size: 2rem;
+    }
+    .video-wrapper {
+        max-width: 320px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .video-wrapper {
+        max-width: 280px;
     }
 }
