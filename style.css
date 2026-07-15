@@ -437,6 +437,7 @@ body {
 .map-container {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .map-title {
@@ -453,6 +454,9 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-top: 1.5rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Карточка карты */
@@ -462,6 +466,9 @@ body {
     padding: 1.5rem;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
 }
 
 .map-card:hover {
@@ -496,6 +503,9 @@ body {
     border-radius: 12px;
     overflow: hidden;
     background: #f5f0ed;
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
 }
 
 .map-wrapper iframe {
@@ -517,6 +527,7 @@ body {
     .maps-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 10px;
     }
     
     .map-wrapper iframe {
@@ -529,6 +540,11 @@ body {
     
     .map-card {
         padding: 1rem;
+        max-width: 100%;
+    }
+
+    .map-container {
+        padding: 0 10px;
     }
 }
 
@@ -543,5 +559,14 @@ body {
     
     .map-card-subtitle {
         font-size: 0.8rem;
+    }
+
+    .maps-grid {
+        padding: 0 5px;
+        gap: 1rem;
+    }
+
+    .map-container {
+        padding: 0 5px;
     }
 }
