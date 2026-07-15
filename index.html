@@ -68,7 +68,7 @@
                 <h3>Свадебное торжество</h3>
                 <p><strong>22 августа 2026 · 15:00</strong></p>
                 <p>Село Меньшие Можары<br />Рязанская область</p>
-                <div class="info-badge">Банкетный зал "Усадьба"</div>
+                <div class="info-badge">Родовое поместье жениха</div>
             </div>
             
             <!-- ДРЕСС-КОД -->
@@ -81,24 +81,57 @@
         </div>
     </section>
 
-    <!-- ===== КАРТА ===== -->
+    <!-- ===== КАРТЫ ===== -->
     <section class="map-section">
         <div class="map-container">
             <h2 class="map-title">Как нас найти?</h2>
-            <p style="text-align: center; color: #7a5a4f; margin-bottom: 1.5rem; font-size: 0.95rem;">
-                Шипиловский дворец бракосочетания · метро Орехово
+            <p style="text-align: center; color: #7a5a4f; margin-bottom: 2rem; font-size: 0.95rem;">
+                Два события — два места встречи
             </p>
-            <div class="map-wrapper">
-                <iframe 
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A87bd59a5fb7796ce5db9e7954e176aa60aca2e3612da25b034c80337cd579550&amp;source=constructor" 
-                    width="100%" 
-                    height="400" 
-                    frameborder="0"
-                    style="border-radius: 16px; display: block;">
-                </iframe>
-            </div>
-            <div style="text-align: center; margin-top: 1.2rem; font-size: 0.9rem; color: #a58a7e;">
-                📍 Шипиловский пр-д, 27 · м. Орехово
+            
+            <!-- ДВЕ КАРТЫ В СЕТКЕ -->
+            <div class="maps-grid">
+                <!-- КАРТА 1: Церемония -->
+                <div class="map-card">
+                    <div class="map-card-header">
+                        <span class="map-card-icon">💍</span>
+                        <h3 class="map-card-title">Церемония</h3>
+                        <p class="map-card-subtitle">Шипиловский дворец бракосочетания</p>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A87bd59a5fb7796ce5db9e7954e176aa60aca2e3612da25b034c80337cd579550&amp;source=constructor" 
+                            width="100%" 
+                            height="300" 
+                            frameborder="0"
+                            style="border-radius: 12px; display: block; border: none;">
+                        </iframe>
+                    </div>
+                    <div class="map-card-footer">
+                        📍 Шипиловский пр-д, 27 · м. Орехово
+                    </div>
+                </div>
+                
+                <!-- КАРТА 2: Празднование -->
+                <div class="map-card">
+                    <div class="map-card-header">
+                        <span class="map-card-icon">🎉</span>
+                        <h3 class="map-card-title">Празднование</h3>
+                        <p class="map-card-subtitle">Родовое поместье жениха</p>
+                    </div>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://yandex.ru/map-widget/v1/?um=constructor%3Af4db5d19baa960fa3ce4126369a54e07c6a3268b0d003cae14c1c499b4eb81b7&amp;source=constructor" 
+                            width="100%" 
+                            height="300" 
+                            frameborder="0"
+                            style="border-radius: 12px; display: block; border: none;">
+                        </iframe>
+                    </div>
+                    <div class="map-card-footer">
+                        📍 Село Меньшие Можары · Рязанская область
+                    </div>
+                </div>
             </div>
         </div>
     </section>
