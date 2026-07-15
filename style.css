@@ -674,3 +674,348 @@ body {
         max-width: 280px;
     }
 }
+
+/* ========== СТРАНИЦА ОПРОСА ========== */
+
+/* Шапка страницы опроса */
+.poll-hero {
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(145deg, #fce9e1 0%, #f8d5c4 100%);
+    position: relative;
+}
+
+.poll-hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.poll-hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #5a3d33;
+    margin-bottom: 0.5rem;
+}
+
+.poll-hero-subtitle {
+    font-size: 1.1rem;
+    color: #7a5a4f;
+}
+
+/* Кнопка "Назад" на странице опроса */
+.btn-back {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: transparent;
+    color: #7a5a4f;
+    border: 1.5px solid #b58a7a;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.btn-back:hover {
+    background: #b58a7a;
+    color: white;
+}
+
+/* Контейнер с формой опроса */
+.poll-section {
+    padding: 4rem 1rem;
+    background: #fdf8f5;
+}
+
+.poll-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+}
+
+.poll-question {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #f0e4de;
+    padding-bottom: 1.5rem;
+}
+
+.poll-question:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.poll-question label {
+    display: block;
+    font-weight: 600;
+    color: #5a3d33;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.poll-question .hint {
+    font-size: 0.85rem;
+    color: #a58a7e;
+    font-weight: 400;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.poll-question input[type="text"],
+.poll-question select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid #e8ddd8;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s;
+    background: #fdfaf8;
+}
+
+.poll-question input[type="text"]:focus,
+.poll-question select:focus {
+    outline: none;
+    border-color: #b58a7a;
+}
+
+.poll-question .radio-group,
+.poll-question .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.poll-question .radio-group label,
+.poll-question .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #4a3a35;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background: #fdfaf8;
+    border-radius: 50px;
+    border: 1.5px solid #e8ddd8;
+    transition: all 0.3s ease;
+    margin: 0;
+}
+
+.poll-question .radio-group label:hover,
+.poll-question .checkbox-group label:hover {
+    border-color: #b58a7a;
+    background: #fceee8;
+}
+
+.poll-question .radio-group input[type="radio"],
+.poll-question .checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: #5a3d33;
+}
+
+.poll-question textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid #e8ddd8;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s;
+    background: #fdfaf8;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.poll-question textarea:focus {
+    outline: none;
+    border-color: #b58a7a;
+}
+
+/* Кнопка отправки опроса */
+.btn-submit-poll {
+    width: 100%;
+    padding: 1rem;
+    background: #5a3d33;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 1rem;
+}
+
+.btn-submit-poll:hover {
+    background: #4a2d23;
+    transform: scale(1.01);
+}
+
+.btn-submit-poll:active {
+    transform: scale(0.98);
+}
+
+.btn-submit-poll.loading {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Сообщение об успехе для опроса */
+.success-message-poll {
+    display: none;
+    text-align: center;
+    padding: 1.5rem;
+    background: #e8f5e9;
+    border-radius: 12px;
+    color: #2e7d32;
+    font-weight: 500;
+    margin-top: 1rem;
+    animation: fadeInUp 0.5s ease;
+}
+
+.success-message-poll.show {
+    display: block;
+}
+
+/* Кнопка на главной странице, ведущая на опрос */
+.poll-button-section {
+    padding: 3rem 1rem;
+    background: #fdf8f5;
+    text-align: center;
+}
+
+.poll-button-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.poll-button-text {
+    font-size: 1.1rem;
+    color: #7a5a4f;
+    margin-bottom: 1.2rem;
+}
+
+.btn-poll {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #5a3d33;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(90, 61, 51, 0.25);
+}
+
+.btn-poll:hover {
+    background: #4a2d23;
+    transform: scale(1.03);
+    box-shadow: 0 6px 30px rgba(90, 61, 51, 0.35);
+}
+
+.btn-poll:active {
+    transform: scale(0.97);
+}
+
+/* Адаптивность для страницы опроса */
+@media (max-width: 600px) {
+    .poll-container {
+        padding: 2rem 1.2rem;
+    }
+    .poll-hero-title {
+        font-size: 2.5rem;
+    }
+    .poll-question .radio-group,
+    .poll-question .checkbox-group {
+        gap: 0.5rem;
+    }
+    .poll-question .radio-group label,
+    .poll-question .checkbox-group label {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    .btn-poll {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+    .poll-button-text {
+        font-size: 1rem;
+    }
+    .btn-back {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+/* ========== КНОПКА НА ОПРОС ========== */
+.poll-button-section {
+    padding: 3rem 1rem;
+    background: #fdf8f5;
+    text-align: center;
+}
+
+.poll-button-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.poll-button-text {
+    font-size: 1.1rem;
+    color: #7a5a4f;
+    margin-bottom: 1.2rem;
+}
+
+.btn-poll {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #5a3d33;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(90, 61, 51, 0.25);
+}
+
+.btn-poll:hover {
+    background: #4a2d23;
+    transform: scale(1.03);
+    box-shadow: 0 6px 30px rgba(90, 61, 51, 0.35);
+}
+
+.btn-poll:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 600px) {
+    .btn-poll {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+    .poll-button-text {
+        font-size: 1rem;
+    }
+}
