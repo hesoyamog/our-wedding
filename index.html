@@ -15,6 +15,13 @@
 
     <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
     <section class="hero">
+        <!-- КОНТЕЙНЕР ДЛЯ СВЕТОВЫХ ПЯТЕН -->
+        <div class="light-container">
+            <div class="light-spot"></div>
+            <div class="light-spot"></div>
+            <div class="light-spot"></div>
+        </div>
+        
         <div class="hero-content">
             <p class="hero-subtitle fade-in">Приглашаем на торжество</p>
             <h1 class="hero-title fade-in fade-in-d1">Ого! Мы женимся!</h1>
@@ -50,7 +57,7 @@
         </div>
     </section>
 
-<!-- ===== ИНФО ===== -->
+    <!-- ===== ИНФО ===== -->
     <section class="info-section">
         <div class="info-grid">
             <!-- ЦЕРЕМОНИЯ -->
@@ -91,7 +98,6 @@
                 Одно событие — два места встречи
             </p>
             
-            <!-- ДВЕ КАРТЫ В СЕТКЕ -->
             <div class="maps-grid">
                 <!-- КАРТА 1: Церемония -->
                 <div class="map-card">
@@ -138,20 +144,18 @@
         </div>
     </section>
 
-     <!-- ===== RSVP ФОРМА ===== -->
+    <!-- ===== RSVP ФОРМА ===== -->
     <section class="rsvp-section">
         <div class="rsvp-container">
             <h2 class="rsvp-title">Подтвердите присутствие</h2>
             <p class="rsvp-subtitle">Нам важно знать, будем ли мы вас ждать ✨</p>
 
             <form id="rsvpForm">
-                <!-- СТАРОЕ ПОЛЕ: Имя -->
                 <div class="form-group">
                     <label for="name">Ваше имя</label>
                     <input type="text" id="name" name="name" placeholder="Например: Иван Петров" required />
                 </div>
                 
-                <!-- СТАРОЕ ПОЛЕ: Количество гостей -->
                 <div class="form-group">
                     <label for="guests">Количество гостей (включая вас)</label>
                     <select id="guests" name="guests">
@@ -163,7 +167,6 @@
                     </select>
                 </div>
                 
-                <!-- НОВОЕ ПОЛЕ: Выбор события -->
                 <div class="form-group">
                     <label for="event">Где будете присутствовать?</label>
                     <select id="event" name="event" required>
@@ -173,7 +176,6 @@
                     </select>
                 </div>
                 
-                <!-- СТАРОЕ ПОЛЕ: Комментарий -->
                 <div class="form-group">
                     <label for="comment">Комментарий (опционально)</label>
                     <input type="text" id="comment" name="comment" placeholder="Например: опоздаем на 15 минут" />
