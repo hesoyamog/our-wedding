@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Приглашение на свадьбу</title>
+    <title>Мы женимся! | Свадьба Михаила и Юлии</title>
     
     <!-- Подключаем шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
@@ -21,7 +21,8 @@
             <div class="hero-divider fade-in fade-in-d2"></div>
             <p class="hero-names fade-in fade-in-d2">Михаил &amp; Юлия</p>
             <div class="hero-date fade-in fade-in-d3">
-                📅 18 августа 2026 · 10:10
+                📅 Церемония: 18 августа 2026 · 10:10<br />
+                🎉 Торжество: 22 августа 2026 · 15:00
             </div>
         </div>
     </section>
@@ -52,25 +53,57 @@
     <!-- ===== ИНФО ===== -->
     <section class="info-section">
         <div class="info-grid">
+            <!-- ЦЕРЕМОНИЯ -->
             <div class="info-card fade-in">
-                <div class="info-icon">📍</div>
-                <h3>Место проведения</h3>
-                <p>Шипиловский Дворец бракосочетания<br /> Шипиловский пр., 27, Москва</p>
+                <div class="info-icon">💍</div>
+                <h3>Церемония бракосочетания</h3>
+                <p><strong>18 августа 2026 · 10:10</strong></p>
+                <p>Шипиловский дворец бракосочетания<br />г. Москва</p>
+                <div class="info-badge">Сбор гостей в 09:30</div>
             </div>
+            
+            <!-- ПРАЗДНОВАНИЕ -->
             <div class="info-card fade-in fade-in-d1">
-                <div class="info-icon">⏰</div>
-                <h3>Время</h3>
-                <p>Сбор гостей в 9:40<br />Церемония в 10:10</p>
+                <div class="info-icon">🎉</div>
+                <h3>Свадебное торжество</h3>
+                <p><strong>22 августа 2026 · 15:00</strong></p>
+                <p>Село Меньшие Можары<br />Рязанская область</p>
+                <div class="info-badge">Банкетный зал "Усадьба"</div>
             </div>
+            
+            <!-- ДРЕСС-КОД -->
             <div class="info-card fade-in fade-in-d2">
                 <div class="info-icon">💌</div>
                 <h3>Дресс-код</h3>
                 <p>Вечерний стиль<br />Приветствуются цветочные акценты</p>
+                <div class="info-badge">Пастельные тона</div>
             </div>
         </div>
     </section>
 
-    <!-- ===== RSVP ФОРМА (С ОТПРАВКОЙ В TELEGRAM) ===== -->
+    <!-- ===== КАРТА ===== -->
+    <section class="map-section">
+        <div class="map-container">
+            <h2 class="map-title">Как нас найти?</h2>
+            <p style="text-align: center; color: #7a5a4f; margin-bottom: 1.5rem; font-size: 0.95rem;">
+                Шипиловский дворец бракосочетания · метро Орехово
+            </p>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A87bd59a5fb7796ce5db9e7954e176aa60aca2e3612da25b034c80337cd579550&amp;source=constructor" 
+                    width="100%" 
+                    height="400" 
+                    frameborder="0"
+                    style="border-radius: 16px; display: block;">
+                </iframe>
+            </div>
+            <div style="text-align: center; margin-top: 1.2rem; font-size: 0.9rem; color: #a58a7e;">
+                📍 Шипиловский пр-д, 27 · м. Орехово
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RSVP ФОРМА ===== -->
     <section class="rsvp-section">
         <div class="rsvp-container">
             <h2 class="rsvp-title">Подтвердите присутствие</h2>
@@ -101,7 +134,6 @@
                 ✅ Спасибо! Ждём вас на нашем празднике!
             </div>
             
-            <!-- Индикатор загрузки -->
             <div id="loadingMessage" class="loading-message" style="display: none; text-align: center; margin-top: 1rem; color: #7a5a4f;">
                 ⏳ Отправляем ваш ответ...
             </div>
