@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мы женимся! | Свадьба</title>
+    
+    <!-- Подключаем шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle fade-in">Приглашаем на торжество</p>
+            <h1 class="hero-title fade-in fade-in-d1">Мы женимся!</h1>
+            <div class="hero-divider fade-in fade-in-d2"></div>
+            <p class="hero-names fade-in fade-in-d2">Алексей &amp; Екатерина</p>
+            <div class="hero-date fade-in fade-in-d3">
+                📅 15 августа 2026 · 17:00
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ТАЙМЕР ===== -->
+    <section class="timer-section">
+        <h2 class="timer-title">До свадьбы осталось</h2>
+        <div class="timer" id="timer">
+            <div class="timer-item">
+                <span class="timer-number" id="days">00</span>
+                <span class="timer-label">Дней</span>
+            </div>
+            <div class="timer-item">
+                <span class="timer-number" id="hours">00</span>
+                <span class="timer-label">Часов</span>
+            </div>
+            <div class="timer-item">
+                <span class="timer-number" id="minutes">00</span>
+                <span class="timer-label">Минут</span>
+            </div>
+            <div class="timer-item">
+                <span class="timer-number" id="seconds">00</span>
+                <span class="timer-label">Секунд</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ИНФО ===== -->
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-card fade-in">
+                <div class="info-icon">📍</div>
+                <h3>Место проведения</h3>
+                <p>Ресторан «Вдохновение»<br />ул. Цветочная, 15, Москва</p>
+            </div>
+            <div class="info-card fade-in fade-in-d1">
+                <div class="info-icon">⏰</div>
+                <h3>Время</h3>
+                <p>Сбор гостей в 16:30<br />Церемония в 17:00</p>
+            </div>
+            <div class="info-card fade-in fade-in-d2">
+                <div class="info-icon">💌</div>
+                <h3>Дресс-код</h3>
+                <p>Вечерний стиль<br />Приветствуются цветочные акценты</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RSVP ФОРМА (С ОТПРАВКОЙ В TELEGRAM) ===== -->
+    <section class="rsvp-section">
+        <div class="rsvp-container">
+            <h2 class="rsvp-title">Подтвердите присутствие</h2>
+            <p class="rsvp-subtitle">Нам важно знать, будем ли мы вас ждать ✨</p>
+
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" placeholder="Например: Иван Петров" required />
+                </div>
+                <div class="form-group">
+                    <label for="guests">Количество гостей</label>
+                    <select id="guests" name="guests">
+                        <option value="Я один">Я один</option>
+                        <option value="Я + один гость">Я + один гость</option>
+                        <option value="Я + двое гостей">Я + двое гостей</option>
+                        <option value="Я + трое гостей">Я + трое гостей</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Комментарий (опционально)</label>
+                    <input type="text" id="comment" name="comment" placeholder="Например: опоздаем на 15 минут" />
+                </div>
+                <button type="submit" class="btn">💞 Отправить ответ</button>
+            </form>
+
+            <div id="successMessage" class="success-message">
+                ✅ Спасибо! Ждём вас на нашем празднике!
+            </div>
+            
+            <!-- Индикатор загрузки -->
+            <div id="loadingMessage" class="loading-message" style="display: none; text-align: center; margin-top: 1rem; color: #7a5a4f;">
+                ⏳ Отправляем ваш ответ...
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+        <span>С любовью</span> · Алексей &amp; Екатерина · 2026
+    </footer>
+
+    <!-- ===== ПОДКЛЮЧАЕМ JAVASCRIPT ===== -->
+    <script src="script.js"></script>
+</body>
+</html>
