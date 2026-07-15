@@ -39,54 +39,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.35);
-    z-index: 1;
-}
-
-/* ========== СВЕТОВЫЕ ПЯТНА ========== */
-.light-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.light-spot {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    animation: moveLight 12s ease-in-out infinite alternate;
-}
-
-.light-spot:nth-child(1) {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(255, 182, 193, 0.35), rgba(255, 182, 193, 0));
-    top: -10%;
-    left: -5%;
-    animation-delay: 0s;
-}
-
-.light-spot:nth-child(2) {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.25), rgba(255, 215, 0, 0));
-    bottom: -10%;
-    right: -5%;
-    animation-delay: -4s;
-}
-
-.light-spot:nth-child(3) {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(255, 105, 180, 0.2), rgba(255, 105, 180, 0));
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-delay: -8s;
 }
 
 /* Декоративный круг */
@@ -99,12 +52,12 @@ body {
     border-radius: 50%;
     bottom: -200px;
     right: -200px;
-    z-index: 1;
+    z-index: 0;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     max-width: 800px;
     color: white;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
@@ -153,24 +106,6 @@ body {
     height: 2px;
     background: rgba(255, 255, 255, 0.6);
     margin: 1.2rem auto;
-}
-
-@keyframes moveLight {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-    25% {
-        transform: translate(30px, -20px) scale(1.1);
-    }
-    50% {
-        transform: translate(-20px, 30px) scale(0.9);
-    }
-    75% {
-        transform: translate(15px, 15px) scale(1.05);
-    }
-    100% {
-        transform: translate(-10px, -10px) scale(1.15);
-    }
 }
 
 /* ========== ТАЙМЕР ========== */
@@ -525,21 +460,6 @@ body {
     .hero {
         background-attachment: scroll;
     }
-    .light-spot {
-        filter: blur(50px);
-    }
-    .light-spot:nth-child(1) {
-        width: 300px;
-        height: 300px;
-    }
-    .light-spot:nth-child(2) {
-        width: 250px;
-        height: 250px;
-    }
-    .light-spot:nth-child(3) {
-        width: 200px;
-        height: 200px;
-    }
     .maps-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -598,5 +518,62 @@ body {
     }
     .map-container {
         padding: 0 5px;
+    }
+}
+
+/* ========== ВИДЕО ========== */
+.video-section {
+    padding: 4rem 1rem;
+    background: #fdf8f5;
+}
+
+.video-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.video-title {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: #5a3d33;
+    margin-bottom: 0.5rem;
+}
+
+.video-subtitle {
+    text-align: center;
+    color: #7a5a4f;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 177.78%; /* 9:16 — вертикальное */
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    background: #f5f0ed;
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    outline: none;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .video-title {
+        font-size: 2rem;
+    }
+    .video-wrapper {
+        border-radius: 12px;
     }
 }
