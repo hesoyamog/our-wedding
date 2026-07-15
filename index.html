@@ -136,30 +136,47 @@
         </div>
     </section>
 
-    <!-- ===== RSVP ФОРМА ===== -->
+     <!-- ===== RSVP ФОРМА ===== -->
     <section class="rsvp-section">
         <div class="rsvp-container">
             <h2 class="rsvp-title">Подтвердите присутствие</h2>
             <p class="rsvp-subtitle">Нам важно знать, будем ли мы вас ждать ✨</p>
 
             <form id="rsvpForm">
+                <!-- СТАРОЕ ПОЛЕ: Имя -->
                 <div class="form-group">
                     <label for="name">Ваше имя</label>
                     <input type="text" id="name" name="name" placeholder="Например: Иван Петров" required />
                 </div>
+                
+                <!-- СТАРОЕ ПОЛЕ: Количество гостей -->
                 <div class="form-group">
-                    <label for="guests">Количество гостей</label>
+                    <label for="guests">Количество гостей (включая вас)</label>
                     <select id="guests" name="guests">
                         <option value="Я один">Я один</option>
                         <option value="Я + один гость">Я + один гость</option>
                         <option value="Я + двое гостей">Я + двое гостей</option>
                         <option value="Я + трое гостей">Я + трое гостей</option>
+                        <option value="Я + четверо гостей">Я + четверо гостей</option>
                     </select>
                 </div>
+                
+                <!-- НОВОЕ ПОЛЕ: Выбор события -->
+                <div class="form-group">
+                    <label for="event">Где будете присутствовать?</label>
+                    <select id="event" name="event" required>
+                        <option value="Буду на церемонии бракосочетания">💍 Буду на церемонии бракосочетания</option>
+                        <option value="Буду на праздновании">🎉 Буду на праздновании</option>
+                        <option value="Буду в обоих местах">💍🎉 Буду в обоих местах</option>
+                    </select>
+                </div>
+                
+                <!-- СТАРОЕ ПОЛЕ: Комментарий -->
                 <div class="form-group">
                     <label for="comment">Комментарий (опционально)</label>
                     <input type="text" id="comment" name="comment" placeholder="Например: опоздаем на 15 минут" />
                 </div>
+                
                 <button type="submit" class="btn">💞 Отправить ответ</button>
             </form>
 
