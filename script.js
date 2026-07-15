@@ -1,7 +1,7 @@
 // ========== НАСТРОЙКИ TELEGRAM ==========
 // ⚠️ ВСТАВЬ СВОЙ ТОКЕН И CHAT ID! ⚠️
 const BOT_TOKEN = '8577554424:AAHJSaH0nqFH8IPGKooqChZh_SHrGGAaWEg'; // ← Твой токен от BotFather
-const CHAT_ID = '402311694'; // ← Твой Chat ID
+const CHAT_ID = '402311694', '1072868851'; // ← Твой Chat ID
 
 // ========== ТАЙМЕР ==========
 function startTimer() {
