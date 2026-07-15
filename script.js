@@ -5,7 +5,7 @@ const CHAT_ID = '402311694', '1072868851'; // ← Твой Chat ID
 
 // ========== ТАЙМЕР ==========
 function startTimer() {
-    const weddingDate = new Date(2026, 7, 15, 17, 0, 0).getTime();
+    const weddingDate = new Date(2026, 7, 18, 10, 10, 0).getTime();
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
