@@ -1,10 +1,15 @@
 // ========== НАСТРОЙКИ TELEGRAM ==========
-// ⚠️ ВСТАВЬ СВОЙ ТОКЕН И CHAT ID! ⚠️
-const BOT_TOKEN = '8577554424:AAHJSaH0nqFH8IPGKooqChZh_SHrGGAaWEg'; // ← Твой токен от BotFather
-const CHAT_ID = '402311694', '1072868851'; // ← Твой Chat ID
+const BOT_TOKEN = '8577554424:AAHJSaH0nqFH8IPGKooqChZh_SHrGGAaWEg';
+
+// 👇 СПИСОК ВСЕХ, КТО ДОЛЖЕН ПОЛУЧАТЬ УВЕДОМЛЕНИЯ
+const CHAT_IDS = [
+    '402311694',   // ← Первый получатель
+    '1072868851'   // ← Второй получатель
+];
 
 // ========== ТАЙМЕР ==========
 function startTimer() {
+    // ⏰ ДАТА СВАДЬБЫ: 18 августа 2026, 10:10
     const weddingDate = new Date(2026, 7, 18, 10, 10, 0).getTime();
 
     const daysEl = document.getElementById('days');
@@ -47,7 +52,7 @@ const successMsg = document.getElementById('successMessage');
 const loadingMsg = document.getElementById('loadingMessage');
 const submitBtn = form.querySelector('.btn');
 
-// Функция для отправки в Telegram
+// Функция для отправки в Telegram всем получателям
 async function sendToTelegram(name, guests, comment) {
     // Формируем красивое сообщение
     let message = `💒 <b>НОВЫЙ ГОСТЬ!</b>\n\n`;
@@ -60,36 +65,42 @@ async function sendToTelegram(name, guests, comment) {
     
     message += `\n🕐 ${new Date().toLocaleString('ru-RU')}`;
 
-    try {
-        const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                chat_id: CHAT_ID,
-                text: message,
-                parse_mode: 'HTML',
-                // Добавляем кнопку "Ответить" в Telegram (опционально)
-                reply_markup: JSON.stringify({
-                    inline_keyboard: [
-                        [{ text: '📋 Посмотреть всех гостей', callback_data: 'list' }]
-                    ]
+    // Отправляем каждому получателю
+    const results = [];
+    for (const chatId of CHAT_IDS) {
+        try {
+            const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: 'HTML'
                 })
-            })
-        });
+            });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('Ошибка Telegram:', errorData);
-            throw new Error(`Telegram API error: ${response.status}`);
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error(`Ошибка отправки для Chat ID ${chatId}:`, errorData);
+                results.push({ chatId, success: false, error: errorData });
+            } else {
+                results.push({ chatId, success: true });
+            }
+        } catch (error) {
+            console.error(`Ошибка соединения для Chat ID ${chatId}:`, error);
+            results.push({ chatId, success: false, error: error.message });
         }
-
-        return true;
-    } catch (error) {
-        console.error('Ошибка при отправке в Telegram:', error);
-        throw error;
     }
+
+    // Проверяем, был ли успех хотя бы у одного получателя
+    const anySuccess = results.some(r => r.success);
+    if (!anySuccess) {
+        throw new Error('Не удалось отправить сообщение ни одному получателю');
+    }
+
+    return results;
 }
 
 // Обработка отправки формы
@@ -116,11 +127,15 @@ form.addEventListener('submit', async function(e) {
     successMsg.classList.remove('show');
     
     try {
-        // Отправляем в Telegram
-        await sendToTelegram(name, guests, comment);
+        // Отправляем в Telegram всем получателям
+        const results = await sendToTelegram(name, guests, comment);
+        
+        // Проверяем, сколько успешных отправок
+        const successCount = results.filter(r => r.success).length;
+        const totalCount = results.length;
         
         // Успех!
-        successMsg.textContent = '✅ Спасибо, ' + name + '! Ждём вас на нашем празднике! 🎉';
+        successMsg.textContent = `✅ Спасибо, ${name}! Уведомление отправлено (${successCount}/${totalCount} получателей). Ждём вас! 🎉`;
         successMsg.classList.add('show');
         form.reset(); // Очищаем форму
         
@@ -152,3 +167,5 @@ form.addEventListener('submit', async function(e) {
 
 // Сообщаем в консоль, что всё работает
 console.log('🎉 Свадебный сайт с Telegram ботом готов!');
+console.log(`👥 Уведомления получат ${CHAT_IDS.length} человек(а):`, CHAT_IDS);
+console.log('📅 Дата свадьбы: 18 августа 2026 года, 10:10');
