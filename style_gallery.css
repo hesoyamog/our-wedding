@@ -1,6 +1,6 @@
 /* ========== СТРАНИЦА ГАЛЕРЕИ ========== */
 
-/* Шапка страницы галереи */
+/* ========== ШАПКА ГАЛЕРЕИ С ФОНОМ ========== */
 .gallery-hero {
     min-height: 40vh;
     display: flex;
@@ -9,25 +9,68 @@
     align-items: center;
     text-align: center;
     padding: 4rem 1rem;
-    background: linear-gradient(145deg, #fce9e1 0%, #f8d5c4 100%);
     position: relative;
+    background-image: url('img/gallery-hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Затемнение поверх фона */
+.gallery-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
 }
 
 .gallery-hero-content {
     max-width: 800px;
     padding: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .gallery-hero-title {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5rem;
-    color: #5a3d33;
+    color: white;
     margin-bottom: 0.5rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-hero-subtitle {
     font-size: 1.1rem;
-    color: #7a5a4f;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Кнопка "Назад" на фоне */
+.gallery-hero .btn-back {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.gallery-hero .btn-back:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
 }
 
 /* Основная секция галереи */
@@ -97,6 +140,14 @@
     transform: scale(0.97);
 }
 
+/* Информация под кнопками */
+.gallery-info {
+    text-align: center;
+    color: #7a5a4f;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
 /* Сетка галереи */
 .gallery-grid {
     display: grid;
@@ -113,6 +164,7 @@
     background: #f5f0ed;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .gallery-item:hover {
@@ -143,18 +195,192 @@
     margin-bottom: 1rem;
 }
 
-/* Информация под кнопками */
-.gallery-info {
-    text-align: center;
-    color: #7a5a4f;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+/* ========== ЛАЙТБОКС ========== */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    animation: fadeIn 0.3s ease;
 }
 
-/* Адаптивность для телефонов */
-@media (max-width: 600px) {
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+/* ===== КНОПКА ЗАКРЫТИЯ ===== */
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0.6;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2) rotate(90deg);
+    opacity: 1;
+}
+
+/* ===== СТРЕЛКИ ДЛЯ ЛИСТАНИЯ ===== */
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-prev:active,
+.lightbox-next:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.lightbox-prev {
+    left: -80px;
+}
+
+.lightbox-next {
+    right: -80px;
+}
+
+/* ===== СЧЁТЧИК ФОТО ===== */
+.lightbox-counter {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+/* ===== АНИМАЦИЯ ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+
+/* Для планшетов */
+@media (max-width: 768px) {
+    .gallery-hero {
+        min-height: 30vh;
+        background-attachment: scroll;
+    }
     .gallery-hero-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+    }
+    .gallery-hero-subtitle {
+        font-size: 1rem;
+    }
+    .lightbox-prev,
+    .lightbox-next {
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+        backdrop-filter: blur(8px);
+    }
+    .lightbox-prev {
+        left: 12px;
+    }
+    .lightbox-next {
+        right: 12px;
+    }
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        font-size: 1.8rem;
+    }
+    .lightbox-content img {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+    .lightbox-counter {
+        bottom: -40px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Для телефонов */
+@media (max-width: 600px) {
+    .gallery-hero {
+        min-height: 30vh;
+        background-attachment: scroll;
+        padding: 3rem 1rem;
+    }
+    .gallery-hero-title {
+        font-size: 2.2rem;
+    }
+    .gallery-hero-subtitle {
+        font-size: 0.95rem;
+    }
+    .gallery-hero .btn-back {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
     }
     .upload-buttons {
         flex-direction: column;
@@ -170,5 +396,32 @@
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 0.8rem;
+    }
+}
+
+/* Для маленьких телефонов */
+@media (max-width: 480px) {
+    .gallery-hero-title {
+        font-size: 1.8rem;
+    }
+    .gallery-hero-subtitle {
+        font-size: 0.85rem;
+    }
+    .lightbox-prev,
+    .lightbox-next {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+    }
+    .lightbox-prev {
+        left: 8px;
+    }
+    .lightbox-next {
+        right: 8px;
+    }
+    .lightbox-close {
+        font-size: 1.5rem;
+        top: 5px;
+        right: 5px;
     }
 }
