@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фотогалерея | Свадьба Михаила и Юлии</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_gallery.css" />
+</head>
+<body>
+
+    <!-- ===== ГЛАВНЫЙ ЭКРАН ГАЛЕРЕИ ===== -->
+    <section class="gallery-hero">
+        <div class="gallery-hero-content">
+            <a href="index.html" class="btn-back">← Вернуться на главную</a>
+            <h1 class="gallery-hero-title">📸 Наша общая галерея</h1>
+            <p class="gallery-hero-subtitle">
+                Дорогие гости! Делитесь своими фотографиями с нашего праздника.<br />
+                Выберите удобный способ — и ваше фото появится здесь! ✨
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== КНОПКИ ЗАГРУЗКИ ===== -->
+    <section class="gallery-section">
+        <div class="gallery-container">
+            
+            <div class="upload-buttons">
+                <!-- Кнопка Telegram (ссылка обновлена) -->
+                <a href="https://t.me/+WNpbCFMeeCM3Yjdi" target="_blank" class="btn-upload telegram">
+                    <span class="icon">📱</span>
+                    Загрузить через Telegram
+                </a>
+                
+                <!-- Кнопка Яндекс.Диск (ссылку нужно заменить на вашу) -->
+                <a href="https://disk.yandex.ru/client/disk/ПАПКА_ДЛЯ_ЗАГРУЗКИ" target="_blank" class="btn-upload yandex">
+                    <span class="icon">🗂️</span>
+                    Загрузить через Яндекс.Диск
+                </a>
+            </div>
+            
+            <p class="gallery-info">
+                🎉 Фотографии будут появляться здесь после проверки модератором
+            </p>
+            
+            <!-- ===== ГАЛЕРЕЯ ===== -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Фото будут загружаться сюда через JavaScript -->
+                <div class="gallery-empty">
+                    <span class="icon">🖼️</span>
+                    Пока нет загруженных фотографий.<br />
+                    Станьте первым! 📸
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer class="footer">
+        <span>С любовью</span> · Михаил &amp; Юлия · 2026
+    </footer>
+
+    <!-- ===== ПОДКЛЮЧАЕМ JAVASCRIPT ===== -->
+    <script src="script_gallery.js"></script>
+</body>
+</html>
