@@ -125,6 +125,13 @@ body {
     pointer-events: none;
 }
 
+/* Скрываем декоративное сердце на iOS */
+@supports (-webkit-touch-callout: none) {
+    .message-section::before {
+        display: none;
+    }
+}
+
 .message-container {
     max-width: 700px;
     margin: 0 auto;
